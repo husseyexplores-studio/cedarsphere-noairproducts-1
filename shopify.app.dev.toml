@@ -1,0 +1,27 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+name = "noairproducts-cedarsphere-1"
+client_id = "00b2450911baa01b279108c8e3d441c9"
+application_url = "https://consistently-declaration-that-las.trycloudflare.com"
+embedded = true
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products,write_discounts"
+
+[auth]
+redirect_urls = [
+  "https://consistently-declaration-that-las.trycloudflare.com/auth/callback",
+  "https://consistently-declaration-that-las.trycloudflare.com/auth/shopify/callback",
+  "https://consistently-declaration-that-las.trycloudflare.com/api/auth/callback"
+]
+
+[webhooks]
+api_version = "2024-01"
+
+[pos]
+embedded = false
+
+[build]
+automatically_update_urls_on_dev = true
+dev_store_url = "hssn09dev.myshopify.com"

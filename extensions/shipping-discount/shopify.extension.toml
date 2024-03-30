@@ -1,0 +1,26 @@
+api_version = "2024-01"
+
+[[extensions]]
+handle = "shipping-discount"
+name = "Shipping discount"
+description = "Custom app by Cedarsphere"
+type = "function"
+
+  [[extensions.targeting]]
+  target = "purchase.shipping-discount.run"
+  input_query = "src/run.graphql"
+  export = "run"
+
+  [extensions.build]
+  command = ""
+  path = "dist/function.wasm"
+
+ [extensions.ui.paths]
+  create = "/app/extensions/shipping-discount/:functionId/new"
+  details = "/app/extensions/shipping-discount/:functionId/:id"
+
+
+  [extensions.input.variables]
+  namespace = "$app:shipping-discount"
+  key = "function-configuration"
+

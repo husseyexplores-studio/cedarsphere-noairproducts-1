@@ -1,0 +1,35 @@
+{
+  "name": "b2b-order-discount",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "scripts": {
+    "shopify": "pnpm exec -- shopify",
+    "typegen": "pnpm exec -- shopify app function typegen",
+    "schema": "pnpm exec -- shopify app function schema",
+    "build": "pnpm exec -- shopify app function build",
+    "preview": "pnpm exec -- shopify app function run",
+    "test": "vitest"
+  },
+  "codegen": {
+    "schema": "schema.graphql",
+    "documents": "src/*.graphql",
+    "generates": {
+      "./generated/api.ts": {
+        "plugins": [
+          "typescript",
+          "typescript-operations"
+        ]
+      }
+    },
+    "config": {
+      "omitOperationSuffix": true
+    }
+  },
+  "devDependencies": {
+    "@shopify/shopify_function": "0.1.0",
+    "vitest": "^1.1.1"
+  },
+  "dependencies": {
+    "javy": "0.1.2"
+  }
+}

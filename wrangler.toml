@@ -1,0 +1,33 @@
+# ref: https://developers.cloudflare.com/workers/wrangler/configuration/
+
+# Cedarphere account
+account_id = "38822c9add08388ed076da39394da2ad"
+name = "noairproducts-cedarsphere-1-dev"
+
+# compatibility_date = "2023-07-01"
+compatibility_date = "2024-01-07"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+preview_database_id = "DB"
+database_name = "noairproducts-cedarsphere-1"
+database_id = "65d8b721-0ba1-465c-8823-7834d88a4fee"
+
+#-------------------------------------------------------------
+
+[env.dev]
+name = "noairproducts-cedarsphere-1-dev"
+kv_namespaces = [
+  # `preview_id` can also be set
+  { binding = "SESSION", id = "c0ea52f5402e404aa64e347a336e8cf1" }
+]
+
+# -------------------------------------------------------------
+
+[env.prod]
+name = "noairproducts-cedarsphere-1"
+kv_namespaces = [
+  { binding = "SESSION", id = "c0ea52f5402e404aa64e347a336e8cf1" }
+]
+

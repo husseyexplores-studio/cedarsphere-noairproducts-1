@@ -1,0 +1,9 @@
+name = "remix"
+roles = ["frontend", "backend"]
+webhooks_path = "/webhooks"
+
+[commands]
+dev = "pnpm exec remix dev"
+
+[hmr_server]
+http_paths = ["/ping"]

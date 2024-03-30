@@ -1,0 +1,75 @@
+{
+  "name": "noairproducts-cedarsphere-1",
+  "private": true,
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "tsc && remix build",
+    "dev": "shopify app dev",
+    "config:link": "shopify app config link",
+    "config:push": "shopify app config push",
+    "generate": "shopify app generate",
+    "deploy": "shopify app deploy",
+    "pages:deploy": "pnpm run build && wrangler pages deploy ./public",
+    "config:use": "shopify app config use",
+    "env": "shopify app env",
+    "start": "wrangler pages dev ./public --live-reload --kv=SESSION --compatibility-date=2023-07-01  --compatibility-flags=\"nodejs_compat\"",
+    "docker-start": "pnpm run setup && pnpm run start",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "clean": "rm -rf ./.wrangler ./.cache ./public/build ./drizzle/migrations && pnpm run migrate:db",
+    "migrate:db": "node ./migrate-db.js",
+    "migrate:db:clean": "find ./.wrangler -name \"*.sqlite\" -type f -delete && rm -rf ./drizzle/migrations && pnpm run migrate:db",
+    "shopify": "shopify",
+    "wrangler": "wrangler"
+  },
+  "dependencies": {
+    "@remix-run/cloudflare": "^2.4.1",
+    "@remix-run/cloudflare-pages": "^2.4.1",
+    "@remix-run/css-bundle": "^2.4.1",
+    "@remix-run/dev": "^2.4.1",
+    "@remix-run/react": "^2.4.1",
+    "@remix-run/serve": "^2.4.1",
+    "@shopify/app": "3.53.0",
+    "@shopify/app-bridge": "^3.7.9",
+    "@shopify/app-bridge-react": "^3.7.9",
+    "@shopify/cli": "3.53.0",
+    "@shopify/discount-app-components": "^2.1.2",
+    "@shopify/polaris": "^12.6.0",
+    "@shopify/react-form": "^2.5.5",
+    "@shopify/react-i18n": "^7.8.0",
+    "@shopify/shopify-api": "^8.1.1",
+    "@shopify/shopify-app-remix": "^2.2.0",
+    "@shopify/shopify-app-session-storage-kv": "^2.0.2",
+    "drizzle-orm": "^0.29.2",
+    "isbot": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20231218.0",
+    "@remix-run/eslint-config": "^2.4.1",
+    "@shopify/app-bridge-types": "^0.0.4",
+    "@types/eslint": "^8.40.0",
+    "@types/node": "^20.6.3",
+    "@types/react": "^18.2.31",
+    "@types/react-dom": "^18.2.14",
+    "drizzle-kit": "^0.20.9",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.1.1",
+    "typescript": "^5.2.2",
+    "wrangler": "^3.22.1",
+    "{eslint-config}@latest": "link:@remix-run/{eslint-config}@latest"
+  },
+  "workspaces": [
+    "extensions/*"
+  ],
+  "trustedDependencies": [
+    "@shopify/plugin-cloudflare"
+  ],
+  "author": "hsy"
+}
